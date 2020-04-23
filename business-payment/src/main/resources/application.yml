@@ -1,0 +1,30 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: payment-service
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/quick_db?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+      username: root
+      password: root
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+#      driver-class-name: com.mysql.cj.jdbc.Driver # MySql8.x
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.yangb.api.common.entities
+
+# 服务注册
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:35001/eureka
+  instance:
+    instance-id: ${spring.application.name}:${server.port} # 实例信息
+    prefer-ip-address: true # 带实例IP地址
