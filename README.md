@@ -21,3 +21,4 @@ project
 - [ ] 授权
 - [ ] 持续集成CI
 
+> 工程建立笔记 <http://book.yangb.xyz/program/SpringCloud/project.html>
