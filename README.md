@@ -1,4 +1,4 @@
-# Spring-Cloud-Yoyo (:construction:项目正在施工中)
+# Spring Cloud Yoyo (:construction:项目正在施工中)
 🪀 Spring Cloud Yoyo是一套SpringCloud 微服务框架整合方案.
 
 ## 项目结构
