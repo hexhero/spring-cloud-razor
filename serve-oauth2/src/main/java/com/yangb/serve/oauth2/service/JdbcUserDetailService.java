@@ -1,5 +1,6 @@
 package com.yangb.serve.oauth2.service;
 
+import com.alibaba.fastjson.JSON;
 import com.yangb.api.common.entities.serve.oauth2.AppPermission;
 import com.yangb.api.common.entities.serve.oauth2.AppUser;
 import com.yangb.serve.oauth2.dao.AppPermissionMapper;
@@ -33,6 +34,7 @@ public class JdbcUserDetailService implements UserDetailsService {
             return null;
         }
         List<AppPermission> permissions = permissionMapper.queryByUserid(user.getId());
+        // TODO 将用户详情存放于username中 User.withUsername(JSON.toJSONString(user)) 方式二: 扩展UserDetails
         UserDetails userDetails = User.withUsername(user.getUsername()).password(user.getPassword())
                 .authorities(permissions.stream().map(item -> item.getCode()).toArray(String[]::new)).build();
         return userDetails;
