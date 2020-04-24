@@ -18,7 +18,8 @@ project
 - [x] 负载均衡
 - [x] 服务调用
 - [x] 服务网关
-- [ ] 授权
+- [x] OAuth2授权
+- [x] 令牌中继
 - [ ] 持续集成CI
 
 > 工程建立笔记 <http://book.yangb.xyz/program/SpringCloud/project.html>

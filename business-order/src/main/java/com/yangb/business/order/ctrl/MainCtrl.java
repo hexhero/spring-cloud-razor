@@ -46,6 +46,12 @@ public class MainCtrl {
         return ResultVo.makeSuccess(principal);
     }
 
+    @RequestMapping("/order/pay/my")
+    public ResultVo myOrderPay(){
+        ResultVo<String> resultVo = paymentFeignService.myPayment();
+        return resultVo;
+    }
+
     @GetMapping("/clients")
     public ResultVo clients() {
         String clients = discoveryClient.getServices().stream()

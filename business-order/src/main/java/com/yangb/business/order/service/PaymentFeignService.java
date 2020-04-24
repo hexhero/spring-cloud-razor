@@ -16,4 +16,6 @@ public interface PaymentFeignService {
     @GetMapping("/payment/{id}")
     ResultVo<Payment> getPayment(@PathVariable("id") Long id);
 
+    @GetMapping("/payment/my")
+    ResultVo<String> myPayment();
 }
