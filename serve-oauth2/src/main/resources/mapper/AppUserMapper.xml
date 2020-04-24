@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yangb.serve.oauth2.dao.AppUserMapper">
+  <resultMap id="BaseResultMap" type="com.yangb.api.common.entities.serve.oauth2.AppUser">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="fullname" jdbcType="VARCHAR" property="fullname" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+  </resultMap>
+
+
+  <select id="queryByUsername" parameterType="string" resultMap="BaseResultMap">
+    select * from app_user where username=#{username}
+  </select>
+
+</mapper>
