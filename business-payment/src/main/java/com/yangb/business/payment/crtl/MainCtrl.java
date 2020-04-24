@@ -1,6 +1,8 @@
 package com.yangb.business.payment.crtl;
 
 import com.yangb.api.common.entities.Payment;
+import com.yangb.api.common.entities.serve.oauth2.AppUser;
+import com.yangb.api.common.utils.CurrentUser;
 import com.yangb.api.common.utils.ResultVo;
 import com.yangb.business.payment.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -20,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 @RestController
 public class MainCtrl {
 
-    @Autowired
+    @Resource
     private PaymentService paymentService;
 
     @RequestMapping({"/","/index"})
@@ -36,8 +39,7 @@ public class MainCtrl {
 
     @GetMapping("/payment/my")
     @Secured("ROLE_ADMIN")
-    public ResultVo<String> myPayment(){
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return ResultVo.makeSuccess("成功",principal + " 的支付信息");
+    public ResultVo<String> myPayment(@CurrentUser AppUser user){
+        return ResultVo.makeSuccess("成功",user.getFullname() + "支付信息：xxx");
     }
 }

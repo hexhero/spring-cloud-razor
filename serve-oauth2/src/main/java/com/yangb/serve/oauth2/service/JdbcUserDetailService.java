@@ -31,11 +31,12 @@ public class JdbcUserDetailService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         AppUser user = appUserMapper.queryByUsername(username);
         if (user == null) {
-            return null;
+            throw new UsernameNotFoundException("用户不存在");
         }
         List<AppPermission> permissions = permissionMapper.queryByUserid(user.getId());
-        // TODO 将用户详情存放于username中 User.withUsername(JSON.toJSONString(user)) 方式二: 扩展UserDetails
-        UserDetails userDetails = User.withUsername(user.getUsername()).password(user.getPassword())
+        String password = user.getPassword();
+        user.setPassword(null);
+        UserDetails userDetails = User.withUsername(JSON.toJSONString(user)).password(password)
                 .authorities(permissions.stream().map(item -> item.getCode()).toArray(String[]::new)).build();
         return userDetails;
     }

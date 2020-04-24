@@ -1,6 +1,8 @@
 package com.yangb.business.order.ctrl;
 
 import com.yangb.api.common.entities.Payment;
+import com.yangb.api.common.entities.serve.oauth2.AppUser;
+import com.yangb.api.common.utils.CurrentUser;
 import com.yangb.api.common.utils.ResultVo;
 import com.yangb.business.order.service.PaymentFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +24,6 @@ import java.util.stream.Collectors;
 @RestController
 public class MainCtrl {
 
-    @Autowired
-    private DiscoveryClient discoveryClient;
-
     @Resource
     private PaymentFeignService paymentFeignService;
 
@@ -39,27 +38,26 @@ public class MainCtrl {
         return payment;
     }
 
+    /**
+     * 演示 获取当前登陆用户，此接口只有 ROLE_ADMIN 权限才能访问。
+     * @param user
+     * @return
+     */
     @RequestMapping("/order/admin")
     @Secured("ROLE_ADMIN")
-    public ResultVo admin(){
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return ResultVo.makeSuccess(principal);
+    public ResultVo admin(@CurrentUser AppUser user){
+        return ResultVo.makeSuccess(user);
     }
 
+    /**
+     * 演示 令牌中继 授权传递
+     * @return
+     */
     @RequestMapping("/order/pay/my")
     public ResultVo myOrderPay(){
         ResultVo<String> resultVo = paymentFeignService.myPayment();
+        resultVo.setData(resultVo.getData() + " > 订单信息：xx");
         return resultVo;
     }
 
-    @GetMapping("/clients")
-    public ResultVo clients() {
-        String clients = discoveryClient.getServices().stream()
-                .map(item -> discoveryClient.getInstances(item).stream()
-                        .map(instance ->
-                                instance.getHost() +  instance.getPort() + instance.getUri() + instance.getScheme()
-                            ).collect(Collectors.joining("|")))
-                .collect(Collectors.joining("/"));
-        return ResultVo.makeSuccess("微服务信息", clients);
-    }
 }
