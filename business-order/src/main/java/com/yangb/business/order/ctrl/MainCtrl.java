@@ -54,10 +54,10 @@ public class MainCtrl {
      * @return
      */
     @RequestMapping("/order/pay/my")
-    public ResultVo myOrderPay(){
-        ResultVo<String> resultVo = paymentFeignService.myPayment();
-        resultVo.setData(resultVo.getData() + " > 订单信息：xx");
-        return resultVo;
+    public ResultVo myOrderPay(@CurrentUser AppUser user){
+        ResultVo<Payment> resultVo = paymentFeignService.getPayment(user.getId().longValue());
+        Payment payment = resultVo.getData();
+        return ResultVo.makeSuccess(user.getFullname() + "订单：xxx" + "支付流水" + payment.getSerial());
     }
 
 }

@@ -30,10 +30,6 @@ public class ResultVo<T extends Object> {
         return makeResult(SUCCESS_CODE, true, "成功", data);
     }
 
-    public static <T> ResultVo makeSuccess(String message, T data){
-        return makeResult(SUCCESS_CODE, true, message, data);
-    }
-
     public static ResultVo makeFailed(String message) {
         return makeResult(FAILED_CODE, false, message, null);
     }

@@ -40,6 +40,6 @@ public class MainCtrl {
     @GetMapping("/payment/my")
     @Secured("ROLE_ADMIN")
     public ResultVo<String> myPayment(@CurrentUser AppUser user){
-        return ResultVo.makeSuccess("成功",user.getFullname() + "支付信息：xxx");
+        return ResultVo.makeSuccess(user.getFullname() + "支付信息：xxx");
     }
 }
