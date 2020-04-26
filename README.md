@@ -1,4 +1,6 @@
-# Spring Cloud Yoyo :construction:
+# Spring Cloud 微服务工程
+
+**:construction: 项目正在建设中, 请持续关注最新动态..**
 
 > Entities should not be multiplied unnecessarily -Occam's Razo 
 
@@ -11,7 +13,7 @@ Spring Cloud Yoyo 是基于 Spring Cloud 的微服务整合方案，秉承奥卡
 
 **(1) 微服务功能**
 * [x] 服务授权/令牌传递 (OAuth2 + JWT)
-* [x] 服务注册/调用 (Eureka + Feign)
+* [x] 服务注册/调用 (Eureka + OpenFeign)
 * [x] 服务网关/负载均衡 (Spring Cloud Gateway + Ribbon)
 * [ ] 服务降级/熔断 (Hystrix)
 
