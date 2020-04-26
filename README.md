@@ -1,8 +1,8 @@
-<div align="center">    
-<img src="docs/banner.png"/>
-</div>
+# Spring Cloud Razor 
 
-![GitHub last commit](https://img.shields.io/github/last-commit/yangb92/spring-cloud-yoyo) ![Build passing](https://img.shields.io/badge/build-passing-green)
+<div align="center"><img src="docs/banner.png"/></div>
+
+![GitHub last commit](https://img.shields.io/github/last-commit/yangb92/spring-cloud-razor) ![Build passing](https://img.shields.io/badge/build-passing-green)
 
 **:construction: 工程正在建设中, 请持续关注最新动态..**
 
