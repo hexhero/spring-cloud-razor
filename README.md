@@ -1,7 +1,8 @@
-# Spring Cloud 微服务工程
+<div align="center">    
+<img src="docs/banner.png"/>
+</div>
 
-![GitHub last commit](https://img.shields.io/github/last-commit/yangb92/spring-cloud-yoyo)
-![Build passing](https://img.shields.io/badge/build-passing-green)
+![GitHub last commit](https://img.shields.io/github/last-commit/yangb92/spring-cloud-yoyo) ![Build passing](https://img.shields.io/badge/build-passing-green)
 
 **:construction: 工程正在建设中, 请持续关注最新动态..**
 
@@ -270,7 +271,16 @@ public ResultVo commonFallback(){
 
 [代码生成插件 使用文档](https://github.com/abel533/Mapper/wiki/4.1.mappergenerator)
 
-## License
+## 关于作者
+
+[@杨斌](http://yangb.xyz)
+
+![Q群 135821423](https://img.shields.io/badge/Q群-135821423-blue)
+![QQ](https://img.shields.io/badge/QQ-523084685-blue)
+
+
+
+## 版权信息
 
 Copyright (c) 2020 杨斌 
 
