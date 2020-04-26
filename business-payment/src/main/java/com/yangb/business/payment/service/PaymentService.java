@@ -1,9 +1,7 @@
 package com.yangb.business.payment.service;
 
-import com.netflix.ribbon.proxy.annotation.Hystrix;
-import com.yangb.api.common.entities.Payment;
-
-import java.util.concurrent.TimeUnit;
+import com.yangb.api.common.entities.business.payment.Payment;
+import com.yangb.api.common.utils.ResultVo;
 
 /**
  * Created by yangb on 2020/4/22
@@ -17,5 +15,5 @@ public interface PaymentService {
      * 异常的方法, 用于演示微服务调用时产生熔断,降级
      * @return
      */
-    String errrMethod(Integer id);
+    ResultVo errrMethod(Integer id);
 }

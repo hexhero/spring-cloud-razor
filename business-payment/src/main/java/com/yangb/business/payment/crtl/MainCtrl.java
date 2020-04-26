@@ -1,6 +1,6 @@
 package com.yangb.business.payment.crtl;
 
-import com.yangb.api.common.entities.Payment;
+import com.yangb.api.common.entities.business.payment.Payment;
 import com.yangb.api.common.entities.serve.oauth2.AppUser;
 import com.yangb.api.common.utils.CurrentUser;
 import com.yangb.api.common.utils.ResultVo;
@@ -42,7 +42,7 @@ public class MainCtrl {
 
     @GetMapping("/payment/timeout")
     public ResultVo error(){
-        String s = paymentService.errrMethod(10);
-        return ResultVo.makeSuccess(s);
+        ResultVo rs = paymentService.errrMethod(10);
+        return rs;
     }
 }
