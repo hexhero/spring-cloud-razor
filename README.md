@@ -18,7 +18,7 @@ Spring Cloud Yoyo 是基于 Spring Cloud 的微服务整合方案，秉承奥卡
 * [x] 服务授权/令牌传递 (OAuth2 + JWT)
 * [x] 服务注册/调用 (Eureka + OpenFeign)
 * [x] 服务网关/负载均衡 (Spring Cloud Gateway + Ribbon)
-* [ ] 服务降级/熔断 (Hystrix)
+* [x] 服务降级/熔断 (Hystrix)
 
 **(2) 业务模块功能**
 * [x] mybatis增强 (mybatis + tk.mybatis)
@@ -161,7 +161,7 @@ public ResultVo admin(@CurrentUser AppUser user){
 }
 ```
 
-### 3. 方法授权
+### 3. 方法权限
 
 用户的权限定义在 `app_permission` 表
 
@@ -205,28 +205,70 @@ public interface PaymentFeignService {
     ResultVo<Payment> getPayment(@PathVariable("id") Long id);
 }
 ```
+Order 创建订单查询Service
+```java
+@Autowired
+private PaymentFeignService paymentFeignService;
+
+@Override
+public ResultVo getOrderDetails(AppUser user) {
+    ResultVo<Payment> payment = paymentFeignService.getPayment(1L);
+    return ResultVo.makeSuccess(user.getFullname() + " 您的订单信息:xxx " + "支付流水: " + payment.getData().getSerial());
+}
+```
 Order 提供订单查询接口
 ```java
-@RequestMapping("/order/pay/my")
+@RequestMapping("/order/details")
 public ResultVo myOrderPay(@CurrentUser AppUser user){
-    ResultVo<Payment> resultVo = paymentFeignService.getPayment(user.getId().longValue());
-    Payment payment = resultVo.getData();
-    return ResultVo.makeSuccess(user.getFullname() + "订单：xxx" + "支付流水" + payment.getSerial());
+    return orderService.getOrderDetails(user);
 }
 ```
 
 测试
 
-`GET` http://localhost/order/pay/my
+`GET` http://localhost/order/details
 
 ```json
 {
     "status": 200,
     "success": true,
-    "message": "杨斌订单：xxx支付流水20200422100238",
+    "message": "杨斌 您的订单信息:xxx 支付流水: 20200422100238",
     "data": null
 }
 ```
+
+### 5. 服务降级/熔断
+
+定义回调方法,在业务方法上加`@HystrixCommand(defaultFallback = "commonFallback")` 并填写回调方法属性
+
+```java
+
+@Autowired
+private PaymentFeignService paymentFeignService;
+
+@HystrixCommand(defaultFallback = "commonFallback")
+@Override
+public ResultVo getOrderDetails(AppUser user) {
+    ResultVo<Payment> payment = paymentFeignService.getPayment(1L);
+    return ResultVo.makeSuccess(user.getFullname() + " 您的订单信息:xxx " + "支付流水: " + payment.getData().getSerial());
+}
+
+public ResultVo commonFallback(){
+    return ResultVo.makeFailed("服务暂不可用!");
+}
+```
+
+### 6. mybatis插件 tk.mybatis 的使用
+
+[tk.mybatis 使用文档](https://github.com/abel533/Mapper/wiki)
+
+### 7. 分页插件 PageHelper 的使用
+
+[PageHelper 使用文档](https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/HowToUse.md)
+
+### 8. 代码生成插件 generator 的使用
+
+[代码生成插件 使用文档](https://github.com/abel533/Mapper/wiki/4.1.mappergenerator)
 
 ## License
 
