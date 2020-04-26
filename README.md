@@ -277,13 +277,13 @@ public ResultVo commonFallback(){
 
 [@杨斌](http://yangb.xyz)
 
-![Q群 135821423](https://img.shields.io/badge/Q群-135821423-blue)
-![QQ](https://img.shields.io/badge/QQ-523084685-blue)
+![Q群135821423](https://img.shields.io/badge/Q群-135821423-blue)
+![QQ 523084685](https://img.shields.io/badge/QQ-523084685-blue)
 
 
 
 ## 版权信息
 
-Copyright (c) 2020 杨斌 
+Copyright (c) 2020 杨斌 All rights reserved.
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
