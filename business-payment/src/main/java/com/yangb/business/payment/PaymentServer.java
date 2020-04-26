@@ -2,6 +2,7 @@ package com.yangb.business.payment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import tk.mybatis.spring.annotation.MapperScan;
 
 /**
@@ -10,6 +11,7 @@ import tk.mybatis.spring.annotation.MapperScan;
  */
 @SpringBootApplication
 @MapperScan("com.yangb.business.payment.dao")
+@EnableCircuitBreaker
 public class PaymentServer {
     public static void main(String[] args) {
         SpringApplication.run(PaymentServer.class, args);

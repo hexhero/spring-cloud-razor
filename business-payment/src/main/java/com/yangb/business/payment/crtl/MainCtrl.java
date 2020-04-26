@@ -5,16 +5,13 @@ import com.yangb.api.common.entities.serve.oauth2.AppUser;
 import com.yangb.api.common.utils.CurrentUser;
 import com.yangb.api.common.utils.ResultVo;
 import com.yangb.business.payment.service.PaymentService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by yangb on 2020/4/22
@@ -41,5 +38,11 @@ public class MainCtrl {
     @Secured("ROLE_ADMIN")
     public ResultVo<String> myPayment(@CurrentUser AppUser user){
         return ResultVo.makeSuccess(user.getFullname() + "支付信息：xxx");
+    }
+
+    @GetMapping("/payment/timeout")
+    public ResultVo error(){
+        String s = paymentService.errrMethod(10);
+        return ResultVo.makeSuccess(s);
     }
 }
