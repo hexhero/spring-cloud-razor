@@ -1,6 +1,9 @@
 # Spring Cloud 微服务工程
 
-**:construction: 项目正在建设中, 请持续关注最新动态..**
+![GitHub last commit](https://img.shields.io/github/last-commit/yangb92/spring-cloud-yoyo)
+![Build passing](https://img.shields.io/badge/build-passing-green)
+
+**:construction: 工程正在建设中, 请持续关注最新动态..**
 
 > Entities should not be multiplied unnecessarily -Occam's Razo 
 
@@ -224,3 +227,6 @@ public ResultVo myOrderPay(@CurrentUser AppUser user){
     "data": null
 }
 ```
+
+## License
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
