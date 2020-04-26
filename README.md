@@ -1,4 +1,4 @@
-# Spring Cloud Yoyo (:construction:项目正在施工中)
+# Spring Cloud Yoyo :construction:
 
 > Entities should not be multiplied unnecessarily -Occam's Razo 
 
