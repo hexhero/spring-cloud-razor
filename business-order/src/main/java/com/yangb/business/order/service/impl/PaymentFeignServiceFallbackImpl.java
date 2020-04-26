@@ -1,6 +1,6 @@
 package com.yangb.business.order.service.impl;
 
-import com.yangb.api.common.entities.Payment;
+import com.yangb.api.common.entities.business.payment.Payment;
 import com.yangb.api.common.utils.ResultVo;
 import com.yangb.business.order.service.PaymentFeignService;
 import org.springframework.stereotype.Service;

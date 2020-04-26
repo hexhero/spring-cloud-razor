@@ -26,7 +26,7 @@ eureka:
 
 # 服务调用连接超时配置
 ribbon:
-    ReadTimeout: 2000 # 连接建立后响应时间
+    ReadTimeout: 3000 # 连接建立后响应时间
     ConnectTimeout: 5000 # 建立连接所用的时间
 
 # 启用feign熔断器

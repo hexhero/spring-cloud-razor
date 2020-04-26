@@ -1,6 +1,6 @@
 package com.yangb.business.order.service;
 
-import com.yangb.api.common.entities.Payment;
+import com.yangb.api.common.entities.business.payment.Payment;
 import com.yangb.api.common.utils.ResultVo;
 import com.yangb.business.order.service.impl.PaymentFeignServiceFallbackImpl;
 import org.springframework.cloud.openfeign.FeignClient;

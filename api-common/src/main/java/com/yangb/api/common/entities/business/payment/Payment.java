@@ -1,4 +1,4 @@
-package com.yangb.api.common.entities;
+package com.yangb.api.common.entities.business.payment;
 
 import javax.persistence.*;
 
