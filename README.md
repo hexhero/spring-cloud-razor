@@ -10,7 +10,7 @@
 
 ## 简介
 
-Spring Cloud Yoyo 是基于 Spring Cloud 的微服务整合方案，秉承奥卡姆剃刀原理 "如无必要,勿增实体" 设计思想，本套微服务架构中唯一依赖的外部服务 —— Mysql数据库，
+Spring Cloud Razor 是基于 Spring Cloud 的微服务整合方案，秉承奥卡姆剃刀原理 "如无必要,勿增实体" 设计思想，本套微服务架构中唯一依赖的外部服务 —— Mysql数据库，
 因此方便上手，易于使用。
 
 ### 功能介绍
@@ -53,7 +53,7 @@ microservice
 **(2) 使用 git 下载项目**
 
 ```bash
-git clone git@github.com:yangb92/spring-cloud-yoyo.git
+git clone git@github.com:yangb92/spring-cloud-razor.git
 ```
 
 **(3) IDEA 导入项目**
@@ -241,6 +241,8 @@ public ResultVo myOrderPay(@CurrentUser AppUser user){
 ### 5. 服务降级/熔断
 
 定义回调方法,在业务方法上加`@HystrixCommand(defaultFallback = "commonFallback")` 并填写回调方法属性
+
+更多使用方式请参考该文档: <http://book.yangb.xyz/program/SpringCloud/hystrix.html>
 
 ```java
 
