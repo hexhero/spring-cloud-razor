@@ -4,7 +4,9 @@ import com.yangb.api.common.entities.business.payment.Payment;
 import com.yangb.api.common.entities.serve.oauth2.AppUser;
 import com.yangb.api.common.utils.CurrentUser;
 import com.yangb.api.common.utils.ResultVo;
+import com.yangb.business.order.service.OrderService;
 import com.yangb.business.order.service.PaymentFeignService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +23,9 @@ public class MainCtrl {
 
     @Resource
     private PaymentFeignService paymentFeignService;
+
+    @Autowired
+    private OrderService orderService;
 
     @RequestMapping
     public ResultVo index() {
@@ -45,14 +50,12 @@ public class MainCtrl {
     }
 
     /**
-     * 演示 令牌中继 授权传递
+     * 演示 令牌中继 服务降级 熔断
      * @return
      */
-    @RequestMapping("/order/pay/my")
+    @RequestMapping("/order/details")
     public ResultVo myOrderPay(@CurrentUser AppUser user){
-        ResultVo<Payment> resultVo = paymentFeignService.getPayment(user.getId().longValue());
-        Payment payment = resultVo.getData();
-        return ResultVo.makeSuccess(user.getFullname() + "订单：xxx" + "支付流水" + payment.getSerial());
+        return orderService.getOrderDetails(user);
     }
 
     /**

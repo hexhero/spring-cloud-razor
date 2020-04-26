@@ -2,7 +2,6 @@ package com.yangb.business.order.service;
 
 import com.yangb.api.common.entities.business.payment.Payment;
 import com.yangb.api.common.utils.ResultVo;
-import com.yangb.business.order.service.impl.PaymentFeignServiceFallbackImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * Created by yangb on 2020/4/23
  * Copyright (c) 2020 杨斌 All rights reserved.
  */
-@FeignClient(value = "PAYMENT-SERVICE",fallback = PaymentFeignServiceFallbackImpl.class)
+@FeignClient(value = "PAYMENT-SERVICE")//,fallback = PaymentFeignServiceFallbackImpl.class)
 public interface PaymentFeignService {
 
     @GetMapping("/payment/{id}")

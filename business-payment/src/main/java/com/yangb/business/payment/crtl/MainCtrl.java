@@ -29,6 +29,7 @@ public class MainCtrl {
     }
 
     @GetMapping("/payment/{id}")
+    @Secured("ROLE_ADMIN")
     public ResultVo<Payment> getPayment(@PathVariable Long id){
         Payment payment = paymentService.findById(id);
         return ResultVo.makeSuccess(payment);
