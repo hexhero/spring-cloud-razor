@@ -5,17 +5,12 @@ import com.yangb.api.common.entities.serve.oauth2.AppUser;
 import com.yangb.api.common.utils.CurrentUser;
 import com.yangb.api.common.utils.ResultVo;
 import com.yangb.business.order.service.PaymentFeignService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.stream.Collectors;
 
 /**
  * Created by yangb on 2020/4/22
@@ -58,6 +53,14 @@ public class MainCtrl {
         ResultVo<Payment> resultVo = paymentFeignService.getPayment(user.getId().longValue());
         Payment payment = resultVo.getData();
         return ResultVo.makeSuccess(user.getFullname() + "订单：xxx" + "支付流水" + payment.getSerial());
+    }
+
+    /**
+     * 服务熔断演示
+     */
+    @RequestMapping("/order/error")
+    public ResultVo error(){
+        return paymentFeignService.error();
     }
 
 }

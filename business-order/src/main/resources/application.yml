@@ -23,10 +23,16 @@ eureka:
   instance:
     instance-id: ${spring.application.name}:${server.port}
 
-# feign 连接超时配置
+
+# 服务调用连接超时配置
 ribbon:
-    ReadTimeout: 5000 # 连接建立后响应时间
+    ReadTimeout: 2000 # 连接建立后响应时间
     ConnectTimeout: 5000 # 建立连接所用的时间
+
+# 启用feign熔断器
+feign:
+  hystrix:
+    enabled: true
 
 logging:
   level:
