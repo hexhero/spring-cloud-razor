@@ -30,4 +30,4 @@ eureka:
     hostname: gateway-serve
   client:
     service-url:
-      defaultZone: http://SERVE-DISCOVER:35001/eureka
+      defaultZone: http://serve-discover:35001/eureka
