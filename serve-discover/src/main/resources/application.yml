@@ -3,7 +3,7 @@ server:
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: SERVE-DISCOVER
   client:
     register-with-eureka: false # 不向注册中心注册自己
     fetch-registry: false # 注册中心不需要去检索服务

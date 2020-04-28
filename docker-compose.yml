@@ -11,6 +11,8 @@ services:
     build: ./serve-oauth2
     restart: always
     container_name: razor-serve-oauth2
+    extra_hosts:
+      - 'mysql-server:192.168.10.45'
     ports:
       - '9001:9001'
     depends_on:
