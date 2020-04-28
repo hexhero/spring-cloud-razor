@@ -1,0 +1,17 @@
+version: '3'
+services:
+  serve-discover:
+    build: ./serve-discover
+    restart: always
+    container_name: razor-serve-discover
+    ports:
+      - '35001:35001'
+
+  serve-oauth2:
+    build: ./serve-oauth2
+    restart: always
+    container_name: razor-serve-oauth2
+    ports:
+      - '9001:9001'
+    depends_on:
+      - serve-discover
