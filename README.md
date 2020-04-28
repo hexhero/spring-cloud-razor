@@ -142,6 +142,19 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzXzEiX
     }
 }
 ```
+
+### 4. 使用Docker部署
+
+打包
+```bash
+mvn clean package
+```
+
+在项目跟目录执行下面命令发布到docker容器
+```bash
+docker-compose up
+```
+
 ## API
 
 ### 1. 在 Controller 中获取当前登陆用户
