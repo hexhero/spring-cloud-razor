@@ -10,18 +10,18 @@ spring:
         locator:
           enabled: true               # 开启从注册中心动态创建路由的功能
       routes:
-        - id: payment-service         # 路由的id, 要求唯一
+        - id: business-payment         # 路由的id, 要求唯一
           uri: lb://business-payment   # 服务地址
           predicates:
-            - Path=/payment/**        # 断言,路径匹配进行路由
+            - Path=/payment/**         # 断言,路径匹配进行路由
 
-        - id: order-service
+        - id: business-order
           uri: lb://business-order
           predicates:
             - Path=/order/**
 
-        - id: oauth2-serve            # 授权服务
-          uri: lb://oauth2-serve
+        - id: serve-oauth2            # 授权服务
+          uri: lb://serve-oauth2
           predicates:
             - Path=/oauth/**
 
