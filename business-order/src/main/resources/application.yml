@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: business-orider
+    name: business-order
   datasource:
     druid:
       driver-class-name: com.mysql.jdbc.Driver
@@ -21,7 +21,7 @@ eureka:
     service-url:
       defaultZone: http://serve-discover:35001/eureka
   instance:
-    hostname: business-orider
+    hostname: business-order
     instance-id: ${eureka.instance.hostname}:${server.port}
 
 # 服务调用连接超时配置

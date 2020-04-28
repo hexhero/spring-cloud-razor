@@ -43,6 +43,8 @@ services:
       - razor-net
     expose:
       - 8002
+    depends_on:
+      - serve-discover
 
   business-payment:
     build: ./business-payment
@@ -54,6 +56,8 @@ services:
       - razor-net
     expose:
       - 8001
+    depends_on:
+      - serve-discover
 
 networks:
   razor-net:
