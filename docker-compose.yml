@@ -15,3 +15,12 @@ services:
       - '9001:9001'
     depends_on:
       - serve-discover
+
+  serve-gateway:
+    build: ./serve-gateway
+    restart: always
+    container_name: razor-serve-gateway
+    ports:
+      - '80:80'
+    depends_on:
+      - serve-discover
