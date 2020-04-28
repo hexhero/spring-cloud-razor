@@ -21,6 +21,8 @@ spring:
 
 # 服务注册
 eureka:
+  instance:
+    hostname: serve-oauth2
   client:
     service-url:
       defaultZone: http://serve-discover:35001/eureka

@@ -27,7 +27,7 @@ spring:
 
 eureka:
   instance:
-    hostname: gateway-serve
+    hostname: serve-gateway
   client:
     service-url:
       defaultZone: http://serve-discover:35001/eureka
