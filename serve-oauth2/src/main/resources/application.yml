@@ -17,8 +17,6 @@ spring:
   main:
     allow-bean-definition-overriding: true
 
-
-
 # 服务注册
 eureka:
   instance:
