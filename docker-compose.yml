@@ -4,6 +4,8 @@ services:
     build: ./serve-discover
     restart: always
     container_name: razor-serve-discover
+    networks:
+      - razor-net
     ports:
       - '35001:35001'
 
@@ -11,6 +13,8 @@ services:
     build: ./serve-oauth2
     restart: always
     container_name: razor-serve-oauth2
+    networks:
+      - razor-net
     extra_hosts:
       - 'mysql-server:192.168.10.45'
     ports:
@@ -22,7 +26,12 @@ services:
     build: ./serve-gateway
     restart: always
     container_name: razor-serve-gateway
+    networks:
+      - razor-net
     ports:
       - '80:80'
     depends_on:
       - serve-discover
+
+networks:
+  razor-net:
