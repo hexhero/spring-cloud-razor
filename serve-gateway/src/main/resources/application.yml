@@ -31,4 +31,4 @@ eureka:
     instance-id: ${eureka.instance.hostname}:${server.port}
   client:
     service-url:
-      defaultZone: http://SERVE-DISCOVER:35001/eureka
+      defaultZone: http://serve-discover:35001/eureka

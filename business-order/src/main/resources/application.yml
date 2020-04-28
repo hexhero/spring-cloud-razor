@@ -7,7 +7,7 @@ spring:
   datasource:
     druid:
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://MYSQL-SERVER:3306/develop?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+      url: jdbc:mysql://mysql-server:3306/develop?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
       username: root
       password: root
       initial-size: 1
@@ -19,7 +19,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://SERVE-DISCOVER:35001/eureka
+      defaultZone: http://serve-discover:35001/eureka
   instance:
     hostname: business-orider
     instance-id: ${eureka.instance.hostname}:${server.port}
