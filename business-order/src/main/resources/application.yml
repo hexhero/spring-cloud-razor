@@ -3,11 +3,11 @@ server:
 
 spring:
   application:
-    name: order-service
+    name: business-orider
   datasource:
     druid:
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/develop?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+      url: jdbc:mysql://MYSQL-SERVER:3306/develop?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
       username: root
       password: root
       initial-size: 1
@@ -19,9 +19,10 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:35001/eureka
+      defaultZone: http://SERVE-DISCOVER:35001/eureka
   instance:
-    instance-id: ${spring.application.name}:${server.port}
+    hostname: business-orider
+    instance-id: ${eureka.instance.hostname}:${server.port}
 
 # 服务调用连接超时配置
 ribbon:
