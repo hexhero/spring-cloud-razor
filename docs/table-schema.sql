@@ -4,7 +4,7 @@ Navicat MySQL Data Transfer
 Source Server         : local
 Source Server Version : 80013
 Source Host           : localhost:3306
-Source Database       : quick_db
+Source Database       : develop
 
 Target Server Type    : MYSQL
 Target Server Version : 80013
@@ -12,8 +12,6 @@ File Encoding         : 65001
 
 Date: 2020-04-24 16:13:15
 */
-
-SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
 -- Table structure for app_permission
@@ -25,7 +23,7 @@ CREATE TABLE `app_permission` (
   `description` varchar(255) DEFAULT NULL,
   `url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- ----------------------------
 -- Records of app_permission
@@ -43,7 +41,7 @@ CREATE TABLE `app_role` (
   `update_time` datetime DEFAULT NULL,
   `status` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- ----------------------------
 -- Records of app_role
@@ -57,7 +55,7 @@ DROP TABLE IF EXISTS `app_role_permission`;
 CREATE TABLE `app_role_permission` (
   `role_id` int(11) DEFAULT NULL,
   `permission_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- ----------------------------
 -- Records of app_role_permission
@@ -75,7 +73,7 @@ CREATE TABLE `app_user` (
   `fullname` varchar(255) DEFAULT NULL,
   `mobile` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- ----------------------------
 -- Records of app_user
@@ -91,7 +89,7 @@ CREATE TABLE `app_user_role` (
   `role_id` int(11) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
   `creator` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- ----------------------------
 -- Records of app_user_role
@@ -115,7 +113,7 @@ CREATE TABLE `oauth_client_details` (
   `additional_information` longtext,
   `autoapprove` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`client_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- ----------------------------
 -- Records of oauth_client_details
@@ -130,7 +128,7 @@ DROP TABLE IF EXISTS `oauth_code`;
 CREATE TABLE `oauth_code` (
   `code` varchar(256) DEFAULT NULL,
   `authentication` blob
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- ----------------------------
 -- Table structure for payment
@@ -140,7 +138,7 @@ CREATE TABLE `payment` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `serial` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- ----------------------------
 -- Records of payment

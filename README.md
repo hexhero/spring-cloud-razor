@@ -48,7 +48,12 @@ microservice
 
 **(1) 初始化数据库**
 
-安装 Mysql，创建数据库`devlop`，执行 [table-schema.sql](docs/table-schema.sql)。
+安装 Mysql，创建数据库`develop`，
+
+* 字符集: utf8mb4
+* 排序规则: utf8mb4_bin
+
+执行 [table-schema.sql](docs/table-schema.sql)。
 
 **(2) 使用 git 下载项目**
 
@@ -71,7 +76,7 @@ spring:
   datasource:
     druid:
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/devlop?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+      url: jdbc:mysql://localhost:3306/develop?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
       username: root
       password: '123'
 ```
@@ -105,7 +110,7 @@ spring:
 }
 ```
 
-调用Order服务： `GET` http://localhost:8002/order/admin
+调用Order服务： `GET` http://localhost/order/admin
 
 在请求头加入令牌
 ```
@@ -279,8 +284,6 @@ public ResultVo commonFallback(){
 
 ![Q群135821423](https://img.shields.io/badge/Q群-135821423-blue)
 ![QQ 523084685](https://img.shields.io/badge/QQ-523084685-blue)
-
-
 
 ## 版权信息
 
