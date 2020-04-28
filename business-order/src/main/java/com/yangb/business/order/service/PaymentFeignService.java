@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * Created by yangb on 2020/4/23
  * Copyright (c) 2020 杨斌 All rights reserved.
  */
-@FeignClient(value = "PAYMENT-SERVICE")//,fallback = PaymentFeignServiceFallbackImpl.class)
+@FeignClient(value = "business-payment")//,fallback = PaymentFeignServiceFallbackImpl.class)
 public interface PaymentFeignService {
 
     @GetMapping("/payment/{id}")

@@ -69,14 +69,25 @@ git clone git@github.com:yangb92/spring-cloud-razor.git
 
 ### 2. 设置
 
-修改各个项目 resource 目录中 application.yml 配置文件中的数据库连接信息
+在本机的`hosts`文件中添加如下配置
+```
+127.0.0.1  serve-discover
+127.0.0.1  serve-gateway
+127.0.0.1  serve-oauth2
+# 数据库连接ip地址
+127.0.0.1  mysql-server
+127.0.0.1  business-order
+127.0.0.1  business-payment
+```
+
+修改各个项目 resource 目录中 application.yml 配置文件中的数据库用户名和密码
 
 ```yaml
 spring:
   datasource:
     druid:
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/develop?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+      url: jdbc:mysql://mysql-server:3306/develop?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
       username: root
       password: '123'
 ```
