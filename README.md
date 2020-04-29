@@ -20,6 +20,7 @@ Spring Cloud Razor 是基于 Spring Cloud 的微服务整合方案，秉承奥�
 * [x] 服务注册/调用 (Eureka + OpenFeign)
 * [x] 服务网关/负载均衡 (Spring Cloud Gateway + Ribbon)
 * [x] 服务降级/熔断 (Hystrix)
+* [x] 配置中心 (Spring Cloud Config)
 
 **(2) 业务模块功能**
 * [x] mybatis增强 (mybatis + tk.mybatis)
@@ -35,6 +36,7 @@ microservice
   | serve-discover      # 服务发现
   | serve-gateway       # 网关服务
   | serve-oauth2        # OAuth2认证中心
+  | serve-config        # 配置中心
   | api-common          # 存放共享实体和封装组件等
 ```
 订单和支付模块用于框架功能演示，实际情况请根据业务进行变更。
@@ -74,12 +76,12 @@ git clone git@github.com:yangb92/spring-cloud-razor.git
 127.0.0.1  serve-discover
 127.0.0.1  serve-gateway
 127.0.0.1  serve-oauth2
-127.0.0.1  mysql-server
+127.0.0.1  serve-conf
 127.0.0.1  business-order
 127.0.0.1  business-payment
 ```
 
-修改各个项目 resource 目录中 application.yml 配置文件中的数据库用户名和密码
+修改`serve-config/src/main/resources/config-files` 目录中的配置文件, 数据库信息改为前面建的数据库.
 
 ```yaml
 spring:
@@ -98,10 +100,11 @@ spring:
 项目启动顺序:
 
 1. serve-discover
-2. serve-gateway
-3. serve-oauth2
-4. business-payment
-5. business-order
+2. serve-config
+3. serve-gateway
+4. serve-oauth2
+5. business-payment
+6. business-order
 
 **(2) 测试**
 
@@ -151,8 +154,9 @@ mvn clean package
 
 在项目跟目录执行下面命令发布到docker容器
 ```bash
-docker-compose up
+docker-compose up [-e spring.profiles.active=prod]
 ```
+-e 环境变量设置, 可以通过修改spring boot环境变量从而决定加载的配置文件.
 
 ## API
 
