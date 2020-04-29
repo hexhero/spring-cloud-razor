@@ -23,6 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/oauth/token","/oauth/check_token").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .csrf().disable();
