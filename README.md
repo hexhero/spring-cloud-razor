@@ -69,12 +69,11 @@ git clone git@github.com:yangb92/spring-cloud-razor.git
 
 ### 2. 设置
 
-在本机的`hosts`文件中添加如下配置
+在本机的`hosts`文件中添加如下配置, 位置: `C:\Windows\System32\drivers\etc\hosts`
 ```
 127.0.0.1  serve-discover
 127.0.0.1  serve-gateway
 127.0.0.1  serve-oauth2
-# 数据库连接ip地址
 127.0.0.1  mysql-server
 127.0.0.1  business-order
 127.0.0.1  business-payment

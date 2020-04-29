@@ -2,8 +2,6 @@ server:
   port: 80
 
 spring:
-  application:
-    name: serve-gateway
   cloud:
     gateway:
       discovery:

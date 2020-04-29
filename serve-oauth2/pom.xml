@@ -12,6 +12,11 @@
     <artifactId>serve-oauth2</artifactId>
     <packaging>jar</packaging>
     <dependencies>
+        <!--配置中心-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
         <!--认证授权-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

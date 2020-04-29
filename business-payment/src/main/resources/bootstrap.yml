@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: business-payment
+  cloud:
+    config:
+      uri:
+        - http://serve-config:35002
+      fail-fast: true

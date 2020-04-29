@@ -1,0 +1,23 @@
+server:
+  port: 35002
+
+spring:
+  application:
+    name: serve-config
+  cloud:
+    config:
+      server:
+        native:
+          search-locations:
+            - 'classpath:/config-files'
+  profiles:
+    active:
+      - native
+
+eureka:
+  instance:
+    hostname: serve-config
+    instance-id: ${eureka.instance.hostname}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://serve-discover:35001/eureka

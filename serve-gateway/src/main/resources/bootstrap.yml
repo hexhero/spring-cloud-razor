@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: serve-gateway
+  cloud:
+    config:
+      uri:
+        - http://serve-config:35002
+      fail-fast: true

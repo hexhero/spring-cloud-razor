@@ -9,14 +9,14 @@ services:
     ports:
       - '35001:35001'
 
-  serve-gateway:
-    build: ./serve-gateway
+  serve-config:
+    build: ./serve-config
     restart: always
-    container_name: razor-serve-gateway
+    container_name: razor-serve-config
     networks:
       - razor-net
-    ports:
-      - '80:80'
+    expose:
+      - 35002
     depends_on:
       - serve-discover
 
@@ -26,38 +26,43 @@ services:
     container_name: razor-serve-oauth2
     networks:
       - razor-net
-    extra_hosts:
-      - 'mysql-server:192.168.10.45'
     expose:
       - 9001
     depends_on:
-      - serve-discover
+      - serve-config
 
   business-order:
     build: ./business-order
     restart: always
     container_name: razor-business-order
-    extra_hosts:
-      - 'mysql-server:192.168.10.45'
     networks:
       - razor-net
     expose:
       - 8002
     depends_on:
-      - serve-discover
+      - serve-config
 
   business-payment:
     build: ./business-payment
     restart: always
     container_name: razor-business-payment
-    extra_hosts:
-      - 'mysql-server:192.168.10.45'
     networks:
       - razor-net
     expose:
       - 8001
     depends_on:
-      - serve-discover
+      - serve-config
+
+  serve-gateway:
+    build: ./serve-gateway
+    restart: always
+    container_name: razor-serve-gateway
+    networks:
+      - razor-net
+    ports:
+      - '80:80'
+    depends_on:
+      - serve-config
 
 networks:
   razor-net:

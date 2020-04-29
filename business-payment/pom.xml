@@ -13,6 +13,11 @@
     <description>支付服务</description>
 
     <dependencies>
+        <!--配置中心-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
         <!--鉴权-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: serve-oauth2
+  cloud:
+    config:
+      uri:
+        - http://serve-config:35002
+      fail-fast: true   # 如果没有读取成功，则执行快速失败(fail-fast)

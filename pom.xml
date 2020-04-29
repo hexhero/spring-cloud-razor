@@ -9,6 +9,7 @@
         <module>business-payment</module>
         <module>business-order</module>
         <module>api-common</module>
+        <module>serve-config</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

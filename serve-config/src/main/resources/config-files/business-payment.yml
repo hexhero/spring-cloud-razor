@@ -1,0 +1,31 @@
+server:
+  port: 8001
+
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://mysql-server:3306/develop?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+      username: root
+      password: root
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://serve-discover:35001/eureka
+  instance:
+    hostname: business-payment
+    instance-id: ${eureka.instance.hostname}:${server.port}
+
+hystrix:
+  command:
+    default: #default全局有效，service id指定应用有效
+      execution:
+        isolation:
+          strategy: SEMAPHORE # 隔离策略: THREAD 线程池隔离, SEMAPHORE 信号池隔离, 如果采用线程池隔离,令牌中继的时候无法获取Authorization
+          thread:
+            timeoutInMilliseconds: 3000 #断路器超时时间，默认1000ms
