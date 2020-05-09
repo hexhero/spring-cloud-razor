@@ -4,8 +4,6 @@
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/yangb92/spring-cloud-razor) ![Build passing](https://img.shields.io/badge/build-passing-green)
 
-**:construction: 工程正在建设中, 请持续关注最新动态..**
-
 > Entities should not be multiplied unnecessarily -Occam's Razo 
 
 ## 简介
@@ -272,9 +270,9 @@ public ResultVo myOrderPay(@CurrentUser AppUser user){
 
 ### 5. 服务降级/熔断
 
-定义回调方法,在业务方法上加`@HystrixCommand(defaultFallback = "commonFallback")` 并填写回调方法属性
+定义回调方法,在业务方法上加`@HystrixCommand(defaultFallback = "commonFallback")` 并填写回调方法属性.当远程服务调用失败或者超时,执行回调方法
 
-更多使用方式请参考该文档: <http://book.yangb.xyz/program/SpringCloud/hystrix.html>
+更多使用方式请参考该文档: <http://book.yangb.xyz/program/springcloud/hystrix.html>
 
 ```java
 
