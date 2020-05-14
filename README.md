@@ -295,6 +295,28 @@ public ResultVo commonFallback(){
 
 [tk.mybatis 使用文档](https://github.com/abel533/Mapper/wiki)
 
+**save方法**
+
+记录保存.参照了JPA save设计,策略如下: 
+1. 当主键为空时, 添加一条数据到数据库
+2. 当主键有值时，修改数据库中的数据
+
+常规写法
+```java
+if (entity.getId() == null) {
+    mapper.insert(entity);
+} else {
+    mapper.updateByPrimaryKeySelective(entity);
+}
+```
+
+使用`save(entity)` 方法
+```java
+mapper.save(entity);
+```
+
+> 该特性非tk.mapper开源项目提供,已向 tk.mapper 提交了合并请求,作者还未回应. [查看详情](https://github.com/abel533/Mapper/pull/760) 
+
 ### 7. 分页插件 PageHelper 的使用
 
 [PageHelper 使用文档](https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/HowToUse.md)
