@@ -325,6 +325,17 @@ mapper.save(entity);
 
 [代码生成插件 使用文档](https://github.com/abel533/Mapper/wiki/4.1.mappergenerator)
 
+## 开发指南
+
+### 糊涂工具包(hutool)
+
+项目集成了国内开源的流行工具包`hutool`
+
+> 官方介绍: Hutool是一个小而全的Java工具类库，通过静态方法封装，降低相关API的学习成本，提高工作效率，使Java拥有函数式语言般的优雅，让Java语言也可以“甜甜的”。
+
+[使用文档](https://www.hutool.cn/docs)
+
+
 ## 关于作者
 
 [@杨斌](http://yangb.xyz)
